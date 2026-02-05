@@ -5,11 +5,11 @@ from pydantic import BaseModel
 import sys
 import os
 
-# Add the project root directory to sys.path
-# This allows importing 'src' regardless of where the script is run from
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+# Add the current directory (backend) to sys.path
+# This allows importing 'core' (which is in the same directory as main.py)
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from src.predict import predict_rent
+from core.predict import predict_rent
 
 app = FastAPI(title="House Rent Prediction API")
 
