@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamHome - Rent Predictor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="background-mesh"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-house-chimney-window"></i>
+                <span>DreamHome</span>
+            </div>
+            <h1>Rent Estimator</h1>
+            <p>AI-Powered Precision Pricing</p>
+        </header>
+
+        <main class="card glass">
+            <form id="predictionForm">
+                <div class="grid-layout">
+                    <!-- Key Features -->
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-bed"></i> BHK</label>
+                        <input type="number" id="bhk" value="2" min="1" max="10" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-ruler-combined"></i> Size (sqft)</label>
+                        <input type="number" id="size" value="900" min="100" step="50" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-bath"></i> Bathrooms</label>
+                        <input type="number" id="bathroom" value="2" min="1" max="10" required>
+                    </div>
+
+                    <!-- Floor details -->
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-stairs"></i> Current Floor</label>
+                        <input type="number" id="current_floor" value="2" min="0" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-building"></i> Total Floors</label>
+                        <input type="number" id="total_floors" value="5" min="1" required>
+                    </div>
+
+                    <!-- Dropdowns -->
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-vector-square"></i> Area Type</label>
+                        <select id="area_type">
+                            <option value="Super Area">Super Area</option>
+                            <option value="Carpet Area">Carpet Area</option>
+                            <option value="Built Area">Built Area</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-city"></i> City</label>
+                        <select id="city">
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Kolkata">Kolkata</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-couch"></i> Furnishing</label>
+                        <select id="furnishing">
+                            <option value="Semi-Furnished">Semi-Furnished</option>
+                            <option value="Unfurnished">Unfurnished</option>
+                            <option value="Furnished">Furnished</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-users"></i> Tenant Type</label>
+                        <select id="tenant">
+                            <option value="Bachelors/Family">Bachelors/Family</option>
+                            <option value="Bachelors">Bachelors</option>
+                            <option value="Family">Family</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group full-width">
+                        <label><i class="fa-solid fa-location-dot"></i> Locality (Approx)</label>
+                        <input type="text" id="locality" value="Other" placeholder="e.g. Whitefield">
+                    </div>
+                </div>
+
+                <button type="submit" id="predictBtn">
+                    <span>Calculate Rent</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <div id="resultArea" class="result-hidden">
+                <div class="price-label">Estimated Monthly Rent</div>
+                <div class="price-value" id="priceValue">₹ 0</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
